@@ -1,3 +1,6 @@
+#
+# Converts a VarScan file to VCF. --output-vcf 1 must be set on Varscan.
+#
 import sys
 import csv
 import itertools
