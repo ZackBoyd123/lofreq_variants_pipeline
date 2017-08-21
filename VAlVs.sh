@@ -153,7 +153,7 @@ then
 	then
 		echo ""
 	else
-		echo "The spelling of your variant caller looks wrong."d
+		echo "The spelling of your variant caller looks wrong."
 		echo "Try: [diversitools] / [vphaser] / [varscan] / [lofreq] / [all]"
 		exit 1
 	fi
