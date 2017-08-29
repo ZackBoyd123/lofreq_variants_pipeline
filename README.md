@@ -16,7 +16,7 @@ mutations between a certain threshold frequency.
 
 Script Should be run as:
 
-python3 diveritools2VCF.py input_entropy output.txt
+*python3 diveritools2VCF.py input_entropy output.txt*
 
 **DiversitoolsStats.py**
 
@@ -26,7 +26,7 @@ mutations; total number of insertions and total number of deletions.
 
 Run the script as:
 
-python3 DiversitoolsStats.py input_entropy
+*python3 DiversitoolsStats.py input_entropy*
 
 **Freebayes2VCF.py**
 
@@ -36,7 +36,7 @@ format. This script will also represent allele frequency as a real value rather 
 
 Run the script as:
 
-python3 Freebayes2VCF.py inputfile output.txt
+*python3 Freebayes2VCF.py inputfile output.txt*
 
 **VarScan2VCF.py**
 
@@ -45,7 +45,7 @@ format.
 
 Run the script as:
 
-python3 VarScan2VCF.py inputfile output.txt
+*python3 VarScan2VCF.py inputfile output.txt*
 
 **VPhaser2VCF.py**
 
@@ -54,7 +54,7 @@ format.
 
 Run as:
 
-python3 VPhaser2VCF.py inputfile output.txt
+*python3 VPhaser2VCF.py inputfile output.txt*
 
 **VCFDistanceMeasure.py**
 
@@ -67,8 +67,8 @@ below shared variants.
 
 Run as:
 
-python3 VCFDistanceMeasure.py -1 firstinput -2 secondinput
--O output.txt
+*python3 VCFDistanceMeasure.py -1 firstinput -2 secondinput
+-O output.txt*
 
 **VCFStat.py**
 
@@ -110,27 +110,38 @@ categories are reported:
 
 Run the script as:
 
-python3 VCFStat.py inputfile
+*python3 VCFStat.py inputfile*
 
 **VCFilter.py**
 
 A python script written to filter variants from a VCF file. This script will work on
-any of the files produced by the above”2VCF” scripts and a Lofreq* vcf file. This
-script would be extremely useful to researchers who wish to examine specific
-frequencies of mutations. For example VCFilter.py could be used on the output
+any of the files produced by the above”2VCF” scripts and a Lofreq* vcf file.
+For example VCFilter.py could be used on the output
 of “Diversitools2VCF.py” to only see high frequency mutations occurring above
 0.5%. The script is run on the command line, and requires some flags to be set:
+
 • -C: Minimum coverage of mutations.
+
+
 • -F: Minimum allele frequency of mutations.
+
+
 • -Q: Minimum quality of mutations.
+
+
 • --strandbias: Should mutation be observed on both forward and reverse
 strand? (yes/no)
+
+
 • -I: Input file.
+
+
 • -O: Output file.
+
 
 Run as:
 
-python3 VCFilter.py -C 50000 -F 0.1 -Q 0 --strandbias yes -I inputfile -O output file
+*python3 VCFilter.py -C 50000 -F 0.1 -Q 0 --strandbias yes -I inputfile -O output file*
 
 **ValVs.sh**
 
@@ -146,33 +157,61 @@ file and an mpileup file are produced. Users also have the ability to also run o
 or multiple variant callers on the BAM files generated previously, choosing
 between: Diversitools, VPhaser2, Lofreq and VarScan. The script requires
 multiple flags to be set and are as follows:
+
 • [-r]: A reference fasta file.
+
+
 • [-U]: A raw fastq file with unpaired reads.
+
+
 • [-1]: First raw fastq file of a paired read sample.
+
+
 • [-2]: Second raw fastq file of a paired sample.
+
+
 Note: Either use -U or -1 and -2, not both.
+
+
 • [-q]: Int Quality score for trim galore to use to trim bases (INT).
+
+
 • [-l]: Reads below this length will be trimmed from data (INT).
+
+
 • [-c]: Remove this many bases pairs from 5’ end of reads (INT)
+
+
 Note: -c only required for paired reads.
+
+
 • [-a]: Which aligner to use [bowtie2] / [bwa] / [tanoti]
+
+
 • [-m]: If bowtie2 is specified run in [local] or [end] alignment mode.
+
+
 • [-v]: Which variant caller to use [diversitools] / [lofreq] / [varscan] /
 [vphaser] / [all]
+
+
 • [-t]: Number of threads to run capable programs on (INT)(Not required).
+
+
 • [-h]: Get help for script.
+
 Help can be invoked on the script by using only the -h flag.
 
 An example of the script being run on unpaired data would be:
 
-./ValVs.sh -r ref.fasta -U unpaired.fastq -q 30 -l 50 -a
-bowtie2 -m local -v diversitools -t 12
+*./ValVs.sh -r ref.fasta -U unpaired.fastq -q 30 -l 50 -a
+bowtie2 -m local -v diversitools -t 12*
 
 An example of the script being run on paired data with a different aligner and
 variant caller would be:
 
-./ValVs.sh -r ref.fasta -1 firstpair.fastq -2
-secondpair.fastq -q 30 -l 50 -c 14 -a bwa -v vphaser -t 12
+*./ValVs.sh -r ref.fasta -1 firstpair.fastq -2
+secondpair.fastq -q 30 -l 50 -c 14 -a bwa -v vphaser -t 12*
 
 
 
